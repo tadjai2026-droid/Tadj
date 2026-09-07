@@ -1,0 +1,1 @@
+export async function detectDevice(){const n:any=navigator;let gpu='unknown',webgpu=!!n.gpu;try{const a=n.gpu?await n.gpu.requestAdapter():null;gpu=a?.name||'webgpu'}catch{}return{ram_gb:n.deviceMemory||4,vram_gb:0,gpu,webgpu,network:n.connection?.effectiveType||'unknown'}}

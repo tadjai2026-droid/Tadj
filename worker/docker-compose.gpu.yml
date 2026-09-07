@@ -1,0 +1,17 @@
+services:
+  tadj-gpu-worker:
+    build: .
+    container_name: tadj-gpu-worker
+    ports:
+      - "9000:9000"
+    env_file:
+      - .env
+    volumes:
+      - tadj-models:/models
+      - tadj-outputs:/outputs
+    gpus: all
+    restart: unless-stopped
+
+volumes:
+  tadj-models:
+  tadj-outputs:
